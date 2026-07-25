@@ -59,3 +59,29 @@ button {
 button:hover {
   background: #1d4ed8;
 }
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  color: #60a5fa;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  margin-top: 40px;
+}
