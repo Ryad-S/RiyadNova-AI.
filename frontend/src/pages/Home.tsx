@@ -1,9 +1,10 @@
 import Navbar from '../components/Navbar'
 import Features from '../components/Features'
 import Dashboard from '../components/Dashboard'
+import DashboardLayout from '../components/DashboardLayout'
 function Home() {
   return (
-    <div>
+    <DashboardLayout>
       <Navbar />
 
       <section className="hero">
@@ -20,12 +21,12 @@ function Home() {
         <div className="hero-buttons">
           <button>Start Building</button>
           <button>Learn More</button>
-        </div>
+        <DashboardLayout>
       </section>
       
       <Features />
       <Dashboard />
-    </div>
+    <DashboardLayout>
   )
 }
 
