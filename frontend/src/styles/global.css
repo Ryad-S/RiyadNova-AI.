@@ -137,3 +137,12 @@ button:hover {
 .sidebar li:hover{
   color:#60a5fa;
 }
+.dashboard-layout{
+  display:flex;
+}
+
+.dashboard-content{
+  flex:1;
+  min-height:100vh;
+  background:#020617;
+}
