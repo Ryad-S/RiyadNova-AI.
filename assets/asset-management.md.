@@ -1,0 +1,194 @@
+# RiyadNova AI Asset Management
+
+## Overview
+
+This document defines how visual assets are organized, managed, and used across the RiyadNova AI platform.
+
+Assets include logos, icons, images, illustrations, animations, and other design resources.
+
+---
+
+# Asset Structure
+
+The assets folder contains:
+
+assets/
+
+├── logo/
+
+├── icons/
+
+├── images/
+
+├── illustrations/
+
+├── animations/
+
+└── brand/
+
+---
+
+# 1. Logo Assets
+
+Location:
+
+assets/logo/
+
+Contains:
+
+- Primary logo
+- Dark background logo
+- Light background logo
+- Icon-only logo
+- Social media logo
+
+File Formats:
+
+- SVG (preferred)
+- PNG
+- WebP
+
+---
+
+# 2. Icons
+
+Location:
+
+assets/icons/
+
+Contains icons for:
+
+- AI tools
+- Dashboard
+- Navigation
+- Features
+- Notifications
+- User interface
+
+Requirements:
+
+- Consistent style
+- Modern appearance
+- Scalable format
+
+---
+
+# 3. Images
+
+Location:
+
+assets/images/
+
+Contains:
+
+- Website images
+- Product screenshots
+- Marketing visuals
+- Background images
+
+Requirements:
+
+- High quality
+- Optimized size
+- Web-friendly formats
+
+---
+
+# 4. Illustrations
+
+Location:
+
+assets/illustrations/
+
+Contains:
+
+- AI concepts
+- Business illustrations
+- Startup visuals
+- User journey graphics
+
+Style:
+
+- Futuristic
+- Professional
+- Minimal
+
+---
+
+# 5. Animations
+
+Location:
+
+assets/animations/
+
+Contains:
+
+- Loading animations
+- AI interaction effects
+- Interface transitions
+
+Formats:
+
+- Lottie
+- SVG animations
+
+---
+
+# 6. Brand Resources
+
+Location:
+
+assets/brand/
+
+Contains:
+
+- Brand guidelines
+- Color references
+- Typography files
+- Marketing materials
+
+---
+
+# File Naming Rules
+
+Use clear names:
+
+Examples:
+
+ai-cofounder-icon.svg
+
+dashboard-preview.webp
+
+logo-primary.svg
+
+
+Avoid:
+
+image1.png
+
+newlogo2.png
+
+final-final.png
+
+---
+
+# Optimization Rules
+
+All assets should:
+
+- Load quickly
+- Maintain quality
+- Work on mobile devices
+- Follow brand guidelines
+
+---
+
+# Future Asset Expansion
+
+Future additions:
+
+- Mobile app assets
+- Presentation templates
+- Investor materials
+- Advertising creatives
+- Video content
