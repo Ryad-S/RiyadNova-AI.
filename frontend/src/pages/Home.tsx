@@ -5,23 +5,21 @@ function Home() {
     <div>
       <Navbar />
 
-      <section>
-        <h1>RiyadNova AI</h1>
+      <section className="hero">
+        <h1>Build Your Startup with AI</h1>
 
-        <h2>Your AI Co-Founder</h2>
+        <h2>RiyadNova AI Co-Founder</h2>
 
         <p>
-          Transform your ideas into successful businesses
-          using artificial intelligence.
+          RiyadNova AI helps entrepreneurs transform business ideas into
+          successful companies using artificial intelligence, market research,
+          financial planning, and intelligent business strategies.
         </p>
 
-        <button>
-          Analyze My Idea
-        </button>
-
-        <button>
-          Create Business Plan
-        </button>
+        <div className="hero-buttons">
+          <button>Start Building</button>
+          <button>Learn More</button>
+        </div>
       </section>
     </div>
   )
