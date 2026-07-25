@@ -146,3 +146,20 @@ button:hover {
   min-height:100vh;
   background:#020617;
 }
+.idea-analyzer{
+  padding:60px;
+}
+
+.idea-analyzer textarea{
+  width:100%;
+  max-width:800px;
+  margin-top:20px;
+  padding:20px;
+  border-radius:10px;
+  font-size:16px;
+  resize:vertical;
+}
+
+.idea-analyzer button{
+  margin-top:20px;
+}
