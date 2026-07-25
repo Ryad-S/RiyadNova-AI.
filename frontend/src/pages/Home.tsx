@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar'
 import Features from '../components/Features'
-
+import Dashboard from '../components/Dashboard'
 function Home() {
   return (
     <div>
@@ -22,8 +22,9 @@ function Home() {
           <button>Learn More</button>
         </div>
       </section>
-
+      
       <Features />
+      <Dashboard />
     </div>
   )
 }
