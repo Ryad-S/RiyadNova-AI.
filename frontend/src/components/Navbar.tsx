@@ -1,14 +1,18 @@
 function Navbar() {
   return (
-    <nav>
-      <h2>RiyadNova AI</h2>
+    <nav className="navbar">
 
-      <div>
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">Pricing</a>
-        <a href="#">Login</a>
+      <div className="logo">
+        RiyadNova <span>AI</span>
       </div>
+
+      <div className="nav-links">
+        <a href="/">Home</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#login">Login</a>
+      </div>
+
     </nav>
   )
 }
