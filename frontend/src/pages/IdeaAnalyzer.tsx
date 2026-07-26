@@ -1,22 +1,32 @@
 function IdeaAnalyzer() {
+
   return (
-    <div className="idea-analyzer">
-      <h1>AI Idea Analyzer</h1>
+
+    <section className="tool-page">
+
+      <h1>
+        🧠 AI Idea Analyzer
+      </h1>
 
       <p>
-        Describe your startup idea and let RiyadNova AI analyze it.
+        Analyze your startup idea and discover opportunities.
       </p>
 
+
       <textarea
-        placeholder="Describe your business idea..."
-        rows={8}
+        placeholder="Write your startup idea..."
       />
 
-      <br />
 
-      <button>Analyze Idea</button>
-    </div>
+      <button className="primary-btn">
+        Analyze Idea
+      </button>
+
+
+    </section>
+
   )
+
 }
 
 export default IdeaAnalyzer
