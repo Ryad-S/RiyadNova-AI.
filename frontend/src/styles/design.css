@@ -41,3 +41,52 @@
   --transition:
     all 0.3s ease;
 }
+/* Navbar */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 50px;
+
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid var(--glass-border);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: white;
+}
+
+
+.logo span {
+  color: var(--neon-pink);
+  text-shadow: var(--pink-glow);
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+
+.nav-links a {
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+
+.nav-links a:hover {
+  color: var(--electric-blue);
+  text-shadow: var(--blue-glow);
+}
