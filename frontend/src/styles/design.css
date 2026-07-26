@@ -639,3 +639,11 @@ body::after {
   color:white;
 
 }
+.app-layout {
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  min-height: 100vh;
+}
