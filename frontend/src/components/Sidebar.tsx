@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+
+
 function Sidebar() {
 
   return (
@@ -11,21 +14,29 @@ function Sidebar() {
 
       <nav>
 
-        <a href="#">
+        <Link to="/">
+          🏠 Dashboard
+        </Link>
+
+
+        <Link to="/idea-analyzer">
           🧠 Idea Analyzer
-        </a>
+        </Link>
 
-        <a href="#">
+
+        <Link to="/market-research">
           📊 Market Research
-        </a>
+        </Link>
 
-        <a href="#">
+
+        <Link to="/business-plan">
           💼 Business Plan
-        </a>
+        </Link>
 
-        <a href="#">
+
+        <Link to="/financial-ai">
           💰 Financial AI
-        </a>
+        </Link>
 
 
       </nav>
@@ -36,5 +47,6 @@ function Sidebar() {
   )
 
 }
+
 
 export default Sidebar
