@@ -90,3 +90,7 @@
   color: var(--electric-blue);
   text-shadow: var(--blue-glow);
 }
+body {
+  background: var(--background-dark);
+  color: var(--text-primary);
+}
