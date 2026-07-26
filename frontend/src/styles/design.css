@@ -491,3 +491,90 @@ body::after {
   color: white;
 
 }
+/* Dashboard Premium UI */
+
+.dashboard {
+  padding: 100px 40px;
+  background: #050816;
+  color: white;
+}
+
+
+.dashboard h1 {
+  text-align: center;
+  font-size: 45px;
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #ec4899
+  );
+
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
+.dashboard > p {
+  text-align: center;
+  color: #cbd5e1;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+
+.idea-analyzer {
+
+  max-width: 850px;
+  margin: 50px auto;
+
+  padding: 40px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.15);
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(20px);
+
+}
+
+
+.idea-analyzer textarea {
+
+  width:100%;
+
+  height:180px;
+
+  background:#020617;
+
+  color:white;
+
+  border:none;
+
+  padding:20px;
+
+  border-radius:20px;
+
+}
+
+
+.analysis-result {
+
+  margin-top:30px;
+
+  padding:25px;
+
+  border-radius:20px;
+
+  background:
+  rgba(56,189,248,0.15);
+
+  border-left:
+  4px solid #ec4899;
+
+  white-space:pre-line;
+
+}
