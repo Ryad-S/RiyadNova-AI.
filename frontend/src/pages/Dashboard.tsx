@@ -1,72 +1,47 @@
+import { useState } from 'react'
+
 function Dashboard() {
+
+  const [idea, setIdea] = useState('')
+
+  const analyzeIdea = () => {
+
+    if (!idea.trim()) {
+      alert('Please enter your startup idea.')
+      return
+    }
+
+    alert('AI Analysis will be connected in the next step.')
+  }
 
   return (
 
-    <div className="dashboard">
+    <section className="dashboard">
 
-      <h1>
-        RiyadNova AI Dashboard
-      </h1>
+      <h1>RiyadNova AI Dashboard</h1>
 
+      <p>Your AI Startup Command Center</p>
 
-      <p>
-        Your AI startup command center.
-      </p>
+      <div className="idea-analyzer">
 
+        <textarea
+          placeholder="Describe your startup idea..."
+          value={idea}
+          onChange={(e) => setIdea(e.target.value)}
+        />
 
-      <div className="dashboard-grid">
+        <br />
 
-
-        <div className="dashboard-card">
-          <h3>
-            🧠 Idea Analyzer
-          </h3>
-
-          <p>
-            Analyze and validate your startup ideas.
-          </p>
-        </div>
-
-
-        <div className="dashboard-card">
-          <h3>
-            📊 Market Intelligence
-          </h3>
-
-          <p>
-            Discover competitors and opportunities.
-          </p>
-        </div>
-
-
-        <div className="dashboard-card">
-          <h3>
-            💼 Business Builder
-          </h3>
-
-          <p>
-            Generate your business strategy.
-          </p>
-        </div>
-
-
-        <div className="dashboard-card">
-          <h3>
-            💰 Financial AI
-          </h3>
-
-          <p>
-            Create financial predictions.
-          </p>
-        </div>
-
+        <button onClick={analyzeIdea}>
+          Analyze with AI
+        </button>
 
       </div>
 
-    </div>
+    </section>
 
   )
-}
 
+}
 
 export default Dashboard
