@@ -191,3 +191,104 @@ body{
   line-height: 1.7;
 
 }
+/* AI Background Glow */
+
+body {
+  overflow-x: hidden;
+}
+
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  background: #2563ff;
+
+  filter: blur(160px);
+
+  opacity: 0.35;
+
+  top: -200px;
+  left: -200px;
+
+  z-index: -1;
+
+}
+
+
+body::after {
+
+  content: "";
+
+  position: fixed;
+
+  width: 450px;
+  height: 450px;
+
+  background: #ec4899;
+
+  filter: blur(150px);
+
+  opacity: 0.25;
+
+  bottom: -150px;
+  right: -150px;
+
+  z-index: -1;
+
+}
+
+
+/* Logo Enhancement */
+
+.logo {
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #ec4899
+  );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  text-shadow: 0 0 25px rgba(236,72,153,0.3);
+
+}
+
+
+/* Smooth Animation */
+
+.hero-content,
+.feature-card {
+
+  animation: fadeUp 0.8s ease;
+
+}
+
+
+@keyframes fadeUp {
+
+  from {
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+  }
+
+  to {
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
