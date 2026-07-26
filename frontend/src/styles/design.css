@@ -391,3 +391,103 @@ body::after {
   line-height: 1.6;
 
 }
+/* AI Idea Analyzer */
+
+
+.idea-analyzer {
+
+  max-width: 900px;
+
+  margin: 50px auto;
+
+  padding: 40px;
+
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(20px);
+
+}
+
+
+
+.idea-analyzer h2 {
+
+  color: #38bdf8;
+
+  margin-bottom: 25px;
+
+}
+
+
+
+.idea-analyzer textarea {
+
+  width: 100%;
+
+  height: 180px;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  border: none;
+
+  outline: none;
+
+  background: #020617;
+
+  color: white;
+
+  font-size: 16px;
+
+  resize: none;
+
+}
+
+
+
+.primary-btn {
+
+  margin-top: 25px;
+
+  padding: 15px 35px;
+
+  border-radius: 30px;
+
+  border: none;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: linear-gradient(
+    90deg,
+    #2563ff,
+    #ec4899
+  );
+
+  font-size: 16px;
+
+}
+
+
+
+.analysis-result {
+
+  margin-top: 30px;
+
+  padding: 25px;
+
+  white-space: pre-line;
+
+  background: rgba(37,99,255,0.15);
+
+  border-radius: 20px;
+
+  color: white;
+
+}
