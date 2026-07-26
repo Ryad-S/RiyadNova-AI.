@@ -1,0 +1,43 @@
+:root {
+  /* RiyadNova AI Brand Colors */
+
+  --primary-blue: #2563ff;
+  --electric-blue: #38bdf8;
+
+  --neon-pink: #ec4899;
+  --violet-glow: #8b5cf6;
+
+  --background-dark: #050816;
+  --surface-dark: #0f172a;
+
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+
+
+  /* Glass Effect */
+
+  --glass-bg: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.15);
+
+
+  /* Shadows */
+
+  --blue-glow:
+    0 0 30px rgba(37,99,255,0.45);
+
+  --pink-glow:
+    0 0 30px rgba(236,72,153,0.35);
+
+
+  /* Radius */
+
+  --radius-small: 10px;
+  --radius-medium: 18px;
+  --radius-large: 30px;
+
+
+  /* Animation */
+
+  --transition:
+    all 0.3s ease;
+}
