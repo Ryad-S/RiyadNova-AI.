@@ -647,3 +647,93 @@ body::after {
   flex: 1;
   min-height: 100vh;
 }
+/* SaaS Layout */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+
+
+/* Tool Pages */
+
+.tool-page {
+
+  padding: 60px;
+
+  background:
+  rgba(255,255,255,0.06);
+
+  border:
+  1px solid rgba(255,255,255,0.15);
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(20px);
+
+}
+
+
+.tool-page h1 {
+
+  font-size: 42px;
+
+  margin-bottom: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #ec4899
+  );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+}
+
+
+.tool-page p {
+
+  color:#cbd5e1;
+
+  font-size:18px;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:800px){
+
+  .app-layout{
+
+    flex-direction:column;
+
+  }
+
+
+  .sidebar{
+
+    width:auto;
+
+    min-height:auto;
+
+  }
+
+
+  .main-content{
+
+    padding:20px;
+
+  }
+
+}
