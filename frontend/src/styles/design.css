@@ -737,3 +737,40 @@ body::after {
   }
 
 }
+.idea-input{
+  width:100%;
+  min-height:180px;
+  background:#020617;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:18px;
+  padding:20px;
+  font-size:16px;
+  resize:none;
+  margin:25px 0;
+}
+
+.analysis-grid{
+  margin-top:35px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.analysis-card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;
+  padding:25px;
+  backdrop-filter:blur(20px);
+}
+
+.analysis-card h3{
+  color:#38bdf8;
+  margin-bottom:15px;
+}
+
+.analysis-card p{
+  color:#cbd5e1;
+  line-height:1.6;
+}
