@@ -1,43 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import AppRouter from "./routes/AppRouter";
 
 
 function App() {
 
   return (
 
-      <BrowserRouter>
+      <AppRouter />
 
-            <Routes>
+        );
 
-
-                    <Route
-                              path="/login"
-                                        element={<Login />}
-                                                />
+        }
 
 
-                                                        <Route
-                                                                  path="/register"
-                                                                            element={<Register />}
-                                                                                    />
-
-
-                                                                                            <Route
-                                                                                                      path="*"
-                                                                                                                element={<Login />}
-                                                                                                                        />
-
-
-                                                                                                                              </Routes>
-
-                                                                                                                                  </BrowserRouter>
-
-                                                                                                                                    );
-
-                                                                                                                                    }
-
-
-                                                                                                                                    export default App;
+        export default App;

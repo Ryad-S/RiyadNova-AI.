@@ -1,96 +1,131 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 function Dashboard() {
 
-  return (
 
-    <section className="dashboard">
-
-
-      <h1>
-        RiyadNova AI Dashboard
-      </h1>
-
-
-      <p>
-        Your AI Startup Command Center
-      </p>
+  const [user, setUser] = useState(null);
 
 
 
-      <div className="dashboard-grid">
+    useEffect(() => {
 
 
-        <div className="dashboard-card">
-
-          <h3>
-            AI Idea Analyzer
-          </h3>
-
-          <p>
-            Analyze your startup ideas using artificial intelligence.
-          </p>
+        const savedUser = localStorage.getItem("user");
 
 
-          <Link to="/idea-analyzer">
-            Open Tool
-          </Link>
+            if (savedUser) {
 
-        </div>
+                  setUser(
+                          JSON.parse(savedUser)
+                                );
+
+                                    }
+
+
+                                      }, []);
 
 
 
-        <div className="dashboard-card">
+                                        return (
 
-          <h3>
-            Business Analysis
-          </h3>
-
-          <p>
-            Generate business insights and opportunities.
-          </p>
-
-        </div>
+                                            <div className="dashboard-page">
 
 
+                                                  <div className="dashboard-card">
 
-        <div className="dashboard-card">
 
-          <h3>
-            Market Research
-          </h3>
-
-          <p>
-            Understand customers and market needs.
-          </p>
-
-        </div>
+                                                          <h1>
+                                                                    RiyadNova AI Dashboard
+                                                                            </h1>
 
 
 
-        <div className="dashboard-card">
+                                                                                    {
+                                                                                              user ? (
 
-          <h3>
-            AI Reports
-          </h3>
+                                                                                                          <>
 
-          <p>
-            Create intelligent reports for your projects.
-          </p>
-
-        </div>
+                                                                                                                        <h2>
+                                                                                                                                        Welcome {user.name}
+                                                                                                                                                      </h2>
 
 
-
-      </div>
-
-
-    </section>
-
-  );
-
-}
+                                                                                                                                                                    <p>
+                                                                                                                                                                                    Email: {user.email}
+                                                                                                                                                                                                  </p>
 
 
-export default Dashboard;
+                                                                                                                                                                                                              </>
+
+                                                                                                                                                                                                                        ) : (
+
+                                                                                                                                                                                                                                    <p>
+                                                                                                                                                                                                                                                  Please login first
+                                                                                                                                                                                                                                                              </p>
+
+                                                                                                                                                                                                                                                                        )
+                                                                                                                                                                                                                                                                                }
+
+
+
+                                                                                                                                                                                                                                                                                        <div className="dashboard-grid">
+
+
+                                                                                                                                                                                                                                                                                                  <div className="feature-card">
+
+                                                                                                                                                                                                                                                                                                              <h3>
+                                                                                                                                                                                                                                                                                                                            AI Idea Analyzer
+                                                                                                                                                                                                                                                                                                                                        </h3>
+
+                                                                                                                                                                                                                                                                                                                                                    <p>
+                                                                                                                                                                                                                                                                                                                                                                  Analyze startup ideas and business opportunities.
+                                                                                                                                                                                                                                                                                                                                                                              </p>
+
+                                                                                                                                                                                                                                                                                                                                                                                        </div>
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                  <div className="feature-card">
+
+                                                                                                                                                                                                                                                                                                                                                                                                              <h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                            AI Business Tools
+                                                                                                                                                                                                                                                                                                                                                                                                                                        </h3>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Build and manage your AI projects.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </p>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div className="feature-card">
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Analytics
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </h3>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Track your project performance.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </p>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            );
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            export default Dashboard;
