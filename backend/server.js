@@ -1,10 +1,15 @@
 import express from "express";
 import cors from "cors";
 
+import "./database/db.js";
+
+import authRoutes from "./routes/auth.routes.js";
+
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
+
 
 
 // Middleware
@@ -15,11 +20,12 @@ app.use(
         })
         );
 
+
         app.use(express.json());
 
 
 
-        // Health Check
+        // Test API
 
         app.get("/", (req, res) => {
 
@@ -37,134 +43,22 @@ app.use(
 
 
 
+                        // Authentication Routes
 
-                        // AI Idea Analyzer API
+                        app.use(
+                          "/api/auth",
+                            authRoutes
+                            );
 
-                        app.post("/api/ai/analyze", (req, res) => {
 
 
-                          try {
 
+                            // Start Server
 
-                              const { idea } = req.body;
+                            app.listen(PORT, () => {
 
+                              console.log(
+                                  `RiyadNova AI Backend running on port ${PORT}`
+                                    );
 
-
-                                  if (!idea || idea.trim() === "") {
-
-
-                                        return res.status(400).json({
-
-                                                status: "error",
-
-                                                        message: "Idea is required"
-
-                                                              });
-
-
-                                                                  }
-
-
-
-                                                                      const analysis = {
-
-
-                                                                            idea,
-
-
-                                                                                  businessScore: 85,
-
-
-                                                                                        marketPotential:
-                                                                                                "High potential digital AI product opportunity",
-
-
-
-                                                                                                      targetAudience: [
-
-                                                                                                              "Students",
-
-                                                                                                                      "Entrepreneurs",
-
-                                                                                                                              "Businesses"
-
-                                                                                                                                    ],
-
-
-
-                                                                                                                                          strengths: [
-
-                                                                                                                                                  "AI automation",
-
-                                                                                                                                                          "Scalable solution",
-
-                                                                                                                                                                  "Digital market"
-
-                                                                                                                                                                        ],
-
-
-
-                                                                                                                                                                              risks: [
-
-                                                                                                                                                                                      "Competition",
-
-                                                                                                                                                                                              "Customer acquisition",
-
-                                                                                                                                                                                                      "Development cost"
-
-                                                                                                                                                                                                            ],
-
-
-
-                                                                                                                                                                                                                  recommendation:
-
-                                                                                                                                                                                                                          "Develop MVP and validate with early users"
-
-
-
-                                                                                                                                                                                                                              };
-
-
-
-                                                                                                                                                                                                                                  res.json({
-
-                                                                                                                                                                                                                                        status: "success",
-
-                                                                                                                                                                                                                                              data: analysis
-
-                                                                                                                                                                                                                                                  });
-
-
-
-                                                                                                                                                                                                                                                    } catch (error) {
-
-
-                                                                                                                                                                                                                                                        res.status(500).json({
-
-                                                                                                                                                                                                                                                              status: "error",
-
-                                                                                                                                                                                                                                                                    message: error.message
-
-                                                                                                                                                                                                                                                                        });
-
-
-                                                                                                                                                                                                                                                                          }
-
-
-                                                                                                                                                                                                                                                                          });
-
-
-
-
-
-                                                                                                                                                                                                                                                                          app.listen(PORT, () => {
-
-
-                                                                                                                                                                                                                                                                            console.log(
-
-                                                                                                                                                                                                                                                                                `RiyadNova AI Backend running on port ${PORT}`
-
-                                                                                                                                                                                                                                                                                  );
-
-
-                                                                                                                                                                                                                                                                                  });
+                                    });
