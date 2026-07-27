@@ -1,44 +1,43 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
-import IdeaAnalyzer from "./pages/IdeaAnalyzer.jsx";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 
 function App() {
 
   return (
 
-    <BrowserRouter>
+      <BrowserRouter>
 
-      <Routes>
-
-        <Route 
-          path="/" 
-          element={<Home />} 
-        />
+            <Routes>
 
 
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
+                    <Route
+                              path="/login"
+                                        element={<Login />}
+                                                />
 
 
-        <Route
-          path="/idea-analyzer"
-          element={<IdeaAnalyzer />}
-        />
+                                                        <Route
+                                                                  path="/register"
+                                                                            element={<Register />}
+                                                                                    />
 
 
-      </Routes>
+                                                                                            <Route
+                                                                                                      path="*"
+                                                                                                                element={<Login />}
+                                                                                                                        />
 
 
-    </BrowserRouter>
+                                                                                                                              </Routes>
 
-  );
+                                                                                                                                  </BrowserRouter>
 
-}
+                                                                                                                                    );
+
+                                                                                                                                    }
 
 
-export default App;
+                                                                                                                                    export default App;
