@@ -6,170 +6,171 @@ function IdeaAnalyzer() {
 
   const [idea, setIdea] = useState("");
 
-  const [result, setResult] = useState(null);
+    const [result, setResult] = useState(null);
 
-  const [loading, setLoading] = useState(false);
+      const [loading, setLoading] = useState(false);
 
 
 
-  const analyzeIdea = async () => {
+        const analyzeIdea = async () => {
 
 
-    if (!idea.trim()) {
+            if (!idea.trim()) {
 
-      alert("Please enter your startup idea.");
+                  alert("Please enter your startup idea.");
 
-      return;
+                        return;
 
-    }
+                            }
 
 
-    setLoading(true);
 
-    setResult(null);
+                                setLoading(true);
 
+                                    setResult(null);
 
 
-    try {
 
+                                        try {
 
-      const response = await fetch(
-        "http://localhost:5000/analyze",
-        {
 
-          method: "POST",
+                                              const response = await fetch(
 
-          headers: {
+                                                      "https://YOUR-BACKEND-SERVER.com/analyze",
 
-            "Content-Type": "application/json"
+                                                              {
 
-          },
+                                                                        method: "POST",
 
+                                                                                  headers: {
 
-          body: JSON.stringify({
+                                                                                              "Content-Type": "application/json"
 
-            idea: idea
+                                                                                                        },
 
-          })
 
-        }
+                                                                                                                  body: JSON.stringify({
 
-      );
+                                                                                                                              idea: idea
 
+                                                                                                                                        })
 
 
-      const data = await response.json();
+                                                                                                                                                }
 
+                                                                                                                                                      );
 
-      setResult(data);
 
 
+                                                                                                                                                            const data = await response.json();
 
-    } catch (error) {
 
+                                                                                                                                                                  setResult(data);
 
-      setResult({
 
-        error:
-        "Cannot connect to AI server"
 
-      });
+                                                                                                                                                                      } catch (error) {
 
 
-    }
+                                                                                                                                                                            setResult({
 
+                                                                                                                                                                                    error:
+                                                                                                                                                                                            "Cannot connect to AI server"
 
-    setLoading(false);
+                                                                                                                                                                                                  });
 
 
-  };
+                                                                                                                                                                                                      }
 
 
 
-  return (
+                                                                                                                                                                                                          setLoading(false);
 
-    <section className="tool-page">
 
+                                                                                                                                                                                                            };
 
-      <h1>
-        AI Idea Analyzer
-      </h1>
 
 
-      <p>
-        Transform your startup idea into a complete business analysis.
-      </p>
+                                                                                                                                                                                                              return (
 
+                                                                                                                                                                                                                  <section className="tool-page">
 
 
-      <textarea
+                                                                                                                                                                                                                        <h1>
+                                                                                                                                                                                                                                AI Idea Analyzer
+                                                                                                                                                                                                                                      </h1>
 
-        placeholder="Describe your startup idea..."
 
-        value={idea}
+                                                                                                                                                                                                                                            <p>
+                                                                                                                                                                                                                                                    Transform your startup idea into a complete business analysis.
+                                                                                                                                                                                                                                                          </p>
 
-        onChange={(e)=>setIdea(e.target.value)}
 
-      />
 
+                                                                                                                                                                                                                                                                <textarea
 
+                                                                                                                                                                                                                                                                        placeholder="Describe your startup idea..."
 
-      <button
+                                                                                                                                                                                                                                                                                value={idea}
 
-        className="primary-btn"
+                                                                                                                                                                                                                                                                                        onChange={(e)=>setIdea(e.target.value)}
 
-        onClick={analyzeIdea}
+                                                                                                                                                                                                                                                                                              />
 
-      >
 
-        {
 
-          loading
+                                                                                                                                                                                                                                                                                                    <button
 
-          ? "Analyzing..."
+                                                                                                                                                                                                                                                                                                            className="primary-btn"
 
-          : "Analyze With AI"
+                                                                                                                                                                                                                                                                                                                    onClick={analyzeIdea}
 
-        }
+                                                                                                                                                                                                                                                                                                                            disabled={loading}
 
+                                                                                                                                                                                                                                                                                                                                  >
 
-      </button>
+                                                                                                                                                                                                                                                                                                                                          {
 
+                                                                                                                                                                                                                                                                                                                                                  loading
 
+                                                                                                                                                                                                                                                                                                                                                          ? "Analyzing..."
 
+                                                                                                                                                                                                                                                                                                                                                                  : "Analyze With AI"
 
-      {
+                                                                                                                                                                                                                                                                                                                                                                          }
 
-        result && (
 
-          <div className="analysis-result">
+                                                                                                                                                                                                                                                                                                                                                                                </button>
 
 
-            <h2>
-              Analysis Result
-            </h2>
 
+                                                                                                                                                                                                                                                                                                                                                                                      {
 
-            <pre>
+                                                                                                                                                                                                                                                                                                                                                                                            result && (
 
-              {JSON.stringify(result,null,2)}
+                                                                                                                                                                                                                                                                                                                                                                                                    <div className="analysis-result">
 
-            </pre>
 
+                                                                                                                                                                                                                                                                                                                                                                                                              <pre>
 
-          </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                        {JSON.stringify(result,null,2)}
 
-        )
+                                                                                                                                                                                                                                                                                                                                                                                                                                  </pre>
 
-      }
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                          </div>
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                )
 
-    </section>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
 
-  );
 
-}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          </section>
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            );
 
-export default IdeaAnalyzer;
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            export default IdeaAnalyzer;

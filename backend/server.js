@@ -1,79 +1,170 @@
 import express from "express";
 import cors from "cors";
 
+
 const app = express();
 
-const PORT = 5000;
-
-app.use(cors());
-
-app.use(express.json());
+const PORT = process.env.PORT || 5000;
 
 
-// اختبار تشغيل السيرفر
-app.get("/", (req, res) => {
-  res.json({
-    status: "success",
-    message: "RiyadNova AI Backend Running"
-  });
-});
+// Middleware
+
+app.use(
+  cors({
+      origin: "*"
+        })
+        );
+
+        app.use(express.json());
 
 
-// تحليل فكرة المشروع
-app.post("/analyze", (req, res) => {
 
-  const { idea } = req.body;
+        // Health Check
 
+        app.get("/", (req, res) => {
 
-  if (!idea) {
-    return res.status(400).json({
-      error: "Idea is required"
-    });
-  }
+          res.json({
 
+              status: "success",
 
-  const analysis = {
+                  message: "RiyadNova AI Backend Running",
 
-    idea: idea,
+                      version: "1.0.0"
 
-    score: 85,
+                        });
 
-    summary:
-      "This idea has potential and can be developed into a scalable AI business.",
+                        });
 
 
-    targetCustomers: [
-      "Students",
-      "Universities",
-      "AI learners"
-    ],
 
 
-    strengths: [
-      "Large digital market",
-      "AI automation",
-      "Scalable platform"
-    ],
+                        // AI Idea Analyzer API
+
+                        app.post("/api/ai/analyze", (req, res) => {
 
 
-    challenges: [
-      "Competition",
-      "Marketing",
-      "Continuous improvement"
-    ]
-
-  };
+                          try {
 
 
-  res.json(analysis);
-
-});
+                              const { idea } = req.body;
 
 
-app.listen(PORT, () => {
 
-  console.log(
-    `RiyadNova AI Backend Running on port ${PORT}`
-  );
+                                  if (!idea || idea.trim() === "") {
 
-});
+
+                                        return res.status(400).json({
+
+                                                status: "error",
+
+                                                        message: "Idea is required"
+
+                                                              });
+
+
+                                                                  }
+
+
+
+                                                                      const analysis = {
+
+
+                                                                            idea,
+
+
+                                                                                  businessScore: 85,
+
+
+                                                                                        marketPotential:
+                                                                                                "High potential digital AI product opportunity",
+
+
+
+                                                                                                      targetAudience: [
+
+                                                                                                              "Students",
+
+                                                                                                                      "Entrepreneurs",
+
+                                                                                                                              "Businesses"
+
+                                                                                                                                    ],
+
+
+
+                                                                                                                                          strengths: [
+
+                                                                                                                                                  "AI automation",
+
+                                                                                                                                                          "Scalable solution",
+
+                                                                                                                                                                  "Digital market"
+
+                                                                                                                                                                        ],
+
+
+
+                                                                                                                                                                              risks: [
+
+                                                                                                                                                                                      "Competition",
+
+                                                                                                                                                                                              "Customer acquisition",
+
+                                                                                                                                                                                                      "Development cost"
+
+                                                                                                                                                                                                            ],
+
+
+
+                                                                                                                                                                                                                  recommendation:
+
+                                                                                                                                                                                                                          "Develop MVP and validate with early users"
+
+
+
+                                                                                                                                                                                                                              };
+
+
+
+                                                                                                                                                                                                                                  res.json({
+
+                                                                                                                                                                                                                                        status: "success",
+
+                                                                                                                                                                                                                                              data: analysis
+
+                                                                                                                                                                                                                                                  });
+
+
+
+                                                                                                                                                                                                                                                    } catch (error) {
+
+
+                                                                                                                                                                                                                                                        res.status(500).json({
+
+                                                                                                                                                                                                                                                              status: "error",
+
+                                                                                                                                                                                                                                                                    message: error.message
+
+                                                                                                                                                                                                                                                                        });
+
+
+                                                                                                                                                                                                                                                                          }
+
+
+                                                                                                                                                                                                                                                                          });
+
+
+
+
+
+                                                                                                                                                                                                                                                                          app.listen(PORT, () => {
+
+
+                                                                                                                                                                                                                                                                            console.log(
+
+                                                                                                                                                                                                                                                                                `RiyadNova AI Backend running on port ${PORT}`
+
+                                                                                                                                                                                                                                                                                  );
+
+
+                                                                                                                                                                                                                                                                                  });
