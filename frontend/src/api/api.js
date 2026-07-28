@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:5000";
+const API_URL =
+"https://cautious-garbanzo-v6rq97975w553664r-5000.app.github.dev";
 
 
 async function request(endpoint, options = {}) {
