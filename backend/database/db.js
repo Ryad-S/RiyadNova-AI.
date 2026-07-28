@@ -5,13 +5,14 @@ import { fileURLToPath } from "url";
 
 
 const __filename = fileURLToPath(import.meta.url);
+
 const __dirname = path.dirname(__filename);
 
 
-// قاعدة البيانات في المجلد الرئيسي database
+
 const dbPath = path.join(
   __dirname,
-    "../../database/riyadnova.db"
+    "riyadnova.db"
     );
 
 
@@ -25,8 +26,6 @@ const dbPath = path.join(
         });
 
 
-
-        // إنشاء جدول المستخدمين إذا لم يكن موجودًا
 
         await db.exec(`
 
@@ -45,6 +44,10 @@ const dbPath = path.join(
         );
 
         `);
+
+
+
+        console.log("Database connected successfully");
 
 
 

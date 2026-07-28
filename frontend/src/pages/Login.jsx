@@ -1,151 +1,188 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/api";
 
 
 function Login() {
 
 
-  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
-    const [password, setPassword] = useState("");
 
-      const [message, setMessage] = useState("");
+    const [email, setEmail] = useState("");
 
+      const [password, setPassword] = useState("");
 
+        const [message, setMessage] = useState("");
 
-        const handleLogin = async (e) => {
 
 
-            e.preventDefault();
+          const handleLogin = async (e) => {
 
+              e.preventDefault();
 
 
-                const result = await loginUser({
+                  try {
 
-                      email,
 
-                            password
+                        const result = await loginUser({
 
-                                });
+                                email,
 
+                                        password
 
+                                              });
 
-                                    if (result.status === "success") {
 
 
-                                          localStorage.setItem(
-                                                  "token",
-                                                          result.token
-                                                                );
+                                                    if (result.status === "success") {
 
 
-                                                                      localStorage.setItem(
-                                                                              "user",
-                                                                                      JSON.stringify(result.user)
-                                                                                            );
+                                                            localStorage.setItem(
+                                                                      "token",
+                                                                                result.token
+                                                                                        );
 
 
-                                                                                                  setMessage(
-                                                                                                          "Login successful"
-                                                                                                                );
+                                                                                                localStorage.setItem(
+                                                                                                          "user",
+                                                                                                                    JSON.stringify(result.user)
+                                                                                                                            );
 
 
-                                                                                                                    } else {
 
+                                                                                                                                    setMessage(
+                                                                                                                                              "Login successful"
+                                                                                                                                                      );
 
-                                                                                                                          setMessage(
-                                                                                                                                  result.message
-                                                                                                                                        );
 
 
-                                                                                                                                            }
+                                                                                                                                                              setTimeout(() => {
 
+                                                                                                                                                                        navigate("/dashboard");
 
-                                                                                                                                              };
+                                                                                                                                                                                }, 500);
 
 
 
-                                                                                                                                                return (
+                                                                                                                                                                                      } else {
 
-                                                                                                                                                    <div className="auth-page">
 
+                                                                                                                                                                                              setMessage(
+                                                                                                                                                                                                        result.message || "Login failed"
+                                                                                                                                                                                                                );
 
-                                                                                                                                                          <div className="auth-card">
 
+                                                                                                                                                                                                                      }
 
-                                                                                                                                                                  <h1>
-                                                                                                                                                                            Login to RiyadNova AI
-                                                                                                                                                                                    </h1>
 
 
+                                                                                                                                                                                                                          } catch (error) {
 
-                                                                                                                                                                                            <form onSubmit={handleLogin}>
 
+                                                                                                                                                                                                                                setMessage(
+                                                                                                                                                                                                                                        "Cannot connect to server"
+                                                                                                                                                                                                                                              );
 
-                                                                                                                                                                                                      <input
 
-                                                                                                                                                                                                                  type="email"
+                                                                                                                                                                                                                                                  }
 
-                                                                                                                                                                                                                              placeholder="Email"
 
-                                                                                                                                                                                                                                          value={email}
+                                                                                                                                                                                                                                                    };
 
-                                                                                                                                                                                                                                                      onChange={(e)=>setEmail(e.target.value)}
 
-                                                                                                                                                                                                                                                                  required
 
-                                                                                                                                                                                                                                                                            />
+                                                                                                                                                                                                                                                      return (
 
+                                                                                                                                                                                                                                                          <div className="auth-page">
 
 
-                                                                                                                                                                                                                                                                                      <input
+                                                                                                                                                                                                                                                                <div className="auth-card">
 
-                                                                                                                                                                                                                                                                                                  type="password"
 
-                                                                                                                                                                                                                                                                                                              placeholder="Password"
+                                                                                                                                                                                                                                                                        <h1>
+                                                                                                                                                                                                                                                                                  RiyadNova AI
+                                                                                                                                                                                                                                                                                          </h1>
 
-                                                                                                                                                                                                                                                                                                                          value={password}
 
-                                                                                                                                                                                                                                                                                                                                      onChange={(e)=>setPassword(e.target.value)}
+                                                                                                                                                                                                                                                                                                  <p>
+                                                                                                                                                                                                                                                                                                            Sign in to your account
+                                                                                                                                                                                                                                                                                                                    </p>
 
-                                                                                                                                                                                                                                                                                                                                                  required
 
-                                                                                                                                                                                                                                                                                                                                                            />
 
+                                                                                                                                                                                                                                                                                                                            <form onSubmit={handleLogin}>
 
 
-                                                                                                                                                                                                                                                                                                                                                                      <button type="submit">
+                                                                                                                                                                                                                                                                                                                                      <input
 
-                                                                                                                                                                                                                                                                                                                                                                                  Login
+                                                                                                                                                                                                                                                                                                                                                  type="email"
 
-                                                                                                                                                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                                                                                                                              placeholder="Email"
 
+                                                                                                                                                                                                                                                                                                                                                                          value={email}
 
-                                                                                                                                                                                                                                                                                                                                                                                                    </form>
+                                                                                                                                                                                                                                                                                                                                                                                      onChange={(e) =>
+                                                                                                                                                                                                                                                                                                                                                                                                    setEmail(e.target.value)
+                                                                                                                                                                                                                                                                                                                                                                                                                }
 
+                                                                                                                                                                                                                                                                                                                                                                                                                            required
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                      />
 
-                                                                                                                                                                                                                                                                                                                                                                                                            {
-                                                                                                                                                                                                                                                                                                                                                                                                                      message && (
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                  <p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                {message}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            </p>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                      )
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                              }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                <input
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            type="password"
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        placeholder="Password"
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    value={password}
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                onChange={(e) =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              setPassword(e.target.value)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      required
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                />
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          }
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <button type="submit">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          export default Login;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Login
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </button>
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </form>
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          message && (
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    {message}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          )
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              );
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              }
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              export default Login;

@@ -1,73 +1,84 @@
 const API_URL = "http://localhost:5000";
 
 
-export async function registerUser(userData) {
+async function request(endpoint, options = {}) {
 
-  const response = await fetch(
-      `${API_URL}/api/auth/register`,
-          {
-                method: "POST",
+  try {
 
-                      headers: {
-                              "Content-Type": "application/json"
-                                    },
-
-                                          body: JSON.stringify(userData)
-                                              }
-                                                );
-
-
-                                                  return response.json();
-
-                                                  }
+      const response = await fetch(
+            `${API_URL}${endpoint}`,
+                  {
+                          ...options,
+                                  headers: {
+                                            "Content-Type": "application/json",
+                                                      ...(options.headers || {})
+                                                              }
+                                                                    }
+                                                                        );
 
 
+                                                                            const data = await response.json();
 
-                                                  export async function loginUser(userData) {
-
-
-                                                    const response = await fetch(
-                                                        `${API_URL}/api/auth/login`,
-                                                            {
-                                                                  method: "POST",
-
-                                                                        headers: {
-                                                                                "Content-Type": "application/json"
-                                                                                      },
-
-                                                                                            body: JSON.stringify(userData)
-                                                                                                }
-                                                                                                  );
+                                                                                return data;
 
 
-                                                                                                    return response.json();
+                                                                                  } catch (error) {
 
-                                                                                                    }
+                                                                                      console.error(
+                                                                                            "API Connection Error:",
+                                                                                                  error
+                                                                                                      );
+
+
+                                                                                                          return {
+                                                                                                                status: "error",
+                                                                                                                      message: "Cannot connect to backend server"
+                                                                                                                          };
+
+                                                                                                                            }
+
+                                                                                                                            }
 
 
 
-                                                                                                    export async function analyzeIdea(idea) {
+                                                                                                                            export function registerUser(userData) {
+
+                                                                                                                              return request(
+                                                                                                                                  "/api/auth/register",
+                                                                                                                                      {
+                                                                                                                                            method: "POST",
+                                                                                                                                                  body: JSON.stringify(userData)
+                                                                                                                                                      }
+                                                                                                                                                        );
+
+                                                                                                                                                        }
 
 
-                                                                                                      const response = await fetch(
-                                                                                                          `${API_URL}/api/ai/analyze`,
-                                                                                                              {
 
-                                                                                                                    method: "POST",
+                                                                                                                                                        export function loginUser(userData) {
 
-                                                                                                                          headers: {
-                                                                                                                                  "Content-Type": "application/json"
-                                                                                                                                        },
+                                                                                                                                                          return request(
+                                                                                                                                                              "/api/auth/login",
+                                                                                                                                                                  {
+                                                                                                                                                                        method: "POST",
+                                                                                                                                                                              body: JSON.stringify(userData)
+                                                                                                                                                                                  }
+                                                                                                                                                                                    );
 
-
-                                                                                                                                              body: JSON.stringify({
-                                                                                                                                                      idea
-                                                                                                                                                            })
-
-                                                                                                                                                                }
-                                                                                                                                                                  );
+                                                                                                                                                                                    }
 
 
-                                                                                                                                                                    return response.json();
 
-                                                                                                                                                                    }
+                                                                                                                                                                                    export function analyzeIdea(idea) {
+
+                                                                                                                                                                                      return request(
+                                                                                                                                                                                          "/api/ai/analyze",
+                                                                                                                                                                                              {
+                                                                                                                                                                                                    method: "POST",
+                                                                                                                                                                                                          body: JSON.stringify({
+                                                                                                                                                                                                                  idea
+                                                                                                                                                                                                                        })
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                              );
+
+                                                                                                                                                                                                                              }
